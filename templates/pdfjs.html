@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <h1> Display PDF using PDF-JS </h1>
+    <p> We display some pdf in this web app using the normal iFrame setting.<br>
+ We use in the next section the PDF-JS to display the same pdfs. click <a href="{% url 'first view' %}">back to normal here</a> to display the same PDFs using the PDF-Js framework. </p>
+    {% for doc in documents %}
+     <h2>{{ doc.title }}</h2>
+     <h4> Doc id is : {{ doc.id }} </h4>
+     <p>{{doc.doc_file.url}} </p>
+	<iframe id="iframe_pdf" src="/web/viewer.html?file=%2F{{ doc.doc_file.url }}" 
+          style="width:800px; height:800px;" frameborder="0"></iframe>
+    {% endfor%}
+  </body>
+</html>
