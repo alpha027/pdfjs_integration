@@ -2161,7 +2161,8 @@ var PDFViewerApplication = {
 exports.PDFViewerApplication = PDFViewerApplication;
 var validateFileURL;
 {
-  var HOSTED_VIEWER_ORIGINS = ["null", "http://mozilla.github.io", "https://mozilla.github.io", "http://127.0.0.1:8000/", "http://127.0.0.1:8000/pdfjs"];
+  var HOSTED_VIEWER_ORIGINS = ["null", "http://mozilla.github.io", "https://mozilla.github.io", "http://127.0.0.1:8000/", "http://127.0.0.1:8000/pdfjs",
+ "http://127.0.0.1:8000/web/viewer.html"];
 
   validateFileURL = function validateFileURL(file) {
     if (file === undefined) {
@@ -2178,7 +2179,10 @@ var validateFileURL;
       var _URL = new URL(file, window.location.href),
           origin = _URL.origin,
           protocol = _URL.protocol;
-      
+      console.debug();
+      console.log('Here we view origin and viewer origin');
+      console.log(origin);
+      console.log(viewerOrigin);
       if (origin !== viewerOrigin && protocol !== "blob:") {
         throw new Error("file origin does not match viewer's");
       }

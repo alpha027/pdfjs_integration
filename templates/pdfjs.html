@@ -7,7 +7,7 @@
      <h2>{{ doc.title }}</h2>
      <h4> Doc id is : {{ doc.id }} </h4>
      <p>{{doc.doc_file.url}} </p>
-	<iframe id="iframe_pdf" src="/web/viewer.html?file=%2F{{ doc.doc_file.url }}" 
+	<iframe id="iframe_pdf" src="/web/viewer.html?file=http://127.0.0.1:8000{{ doc.doc_file.url }}" 
           style="width:800px; height:800px;" frameborder="0"></iframe>
     {% endfor%}
   </body>
